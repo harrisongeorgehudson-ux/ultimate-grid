@@ -1,14 +1,14 @@
 const drivers = [
-  { name: "Max Verstappen", team: "Red Bull", pace: 97, racecraft: 95, consistency: 95, tyre: 92, wet: 93, mental: 96 },
-  { name: "Sergio Perez", team: "Red Bull", pace: 88, racecraft: 89, consistency: 85, tyre: 90, wet: 87, mental: 84 },
-  { name: "Lewis Hamilton", team: "Mercedes", pace: 92, racecraft: 96, consistency: 93, tyre: 95, wet: 97, mental: 94 },
-  { name: "George Russell", team: "Mercedes", pace: 90, racecraft: 88, consistency: 87, tyre: 86, wet: 85, mental: 88 },
-  { name: "Charles Leclerc", team: "Ferrari", pace: 94, racecraft: 88, consistency: 85, tyre: 84, wet: 82, mental: 87 },
-  { name: "Carlos Sainz", team: "Ferrari", pace: 89, racecraft: 90, consistency: 88, tyre: 87, wet: 86, mental: 89 },
-  { name: "Lando Norris", team: "McLaren", pace: 91, racecraft: 89, consistency: 88, tyre: 86, wet: 85, mental: 90 },
-  { name: "Oscar Piastri", team: "McLaren", pace: 88, racecraft: 85, consistency: 84, tyre: 83, wet: 82, mental: 86 },
-  { name: "Fernando Alonso", team: "Aston Martin", pace: 89, racecraft: 94, consistency: 91, tyre: 92, wet: 90, mental: 95 },
-  { name: "Lance Stroll", team: "Aston Martin", pace: 82, racecraft: 80, consistency: 78, tyre: 79, wet: 77, mental: 80 }
+  { name: "Max Verstappen", team: "Red Bull", emoji: "🐂", color: "#0600EF", pace: 97, racecraft: 95, consistency: 95, tyre: 92, wet: 93, mental: 96 },
+  { name: "Sergio Perez", team: "Red Bull", emoji: "🇲🇽", color: "#0600EF", pace: 88, racecraft: 89, consistency: 85, tyre: 90, wet: 87, mental: 84 },
+  { name: "Lewis Hamilton", team: "Mercedes", emoji: "🐐", color: "#00D2BE", pace: 92, racecraft: 96, consistency: 93, tyre: 95, wet: 97, mental: 94 },
+  { name: "George Russell", team: "Mercedes", emoji: "🇬🇧", color: "#00D2BE", pace: 90, racecraft: 88, consistency: 87, tyre: 86, wet: 85, mental: 88 },
+  { name: "Charles Leclerc", team: "Ferrari", emoji: "🐴", color: "#DC0000", pace: 94, racecraft: 88, consistency: 85, tyre: 84, wet: 82, mental: 87 },
+  { name: "Carlos Sainz", team: "Ferrari", emoji: "🇪🇸", color: "#DC0000", pace: 89, racecraft: 90, consistency: 88, tyre: 87, wet: 86, mental: 89 },
+  { name: "Lando Norris", team: "McLaren", emoji: "🧡", color: "#FF8700", pace: 91, racecraft: 89, consistency: 88, tyre: 86, wet: 85, mental: 90 },
+  { name: "Oscar Piastri", team: "McLaren", emoji: "🇦🇺", color: "#FF8700", pace: 88, racecraft: 85, consistency: 84, tyre: 83, wet: 82, mental: 86 },
+  { name: "Fernando Alonso", team: "Aston Martin", emoji: "🇪🇸", color: "#006C3F", pace: 89, racecraft: 94, consistency: 91, tyre: 92, wet: 90, mental: 95 },
+  { name: "Lance Stroll", team: "Aston Martin", emoji: "🇨🇦", color: "#006C3F", pace: 82, racecraft: 80, consistency: 78, tyre: 79, wet: 77, mental: 80 }
 ];
 
 function calculateOVR(driver) {
@@ -32,17 +32,77 @@ function loadDrivers() {
   allDrivers.forEach(driver => {
     const card = document.createElement("div");
     card.className = "card";
+    card.style.borderLeftColor = driver.color;
+    card.style.borderLeftWidth = "6px";
 
     card.innerHTML = `
-      <h2>${driver.name}</h2>
-      <div class="ovr">${driver.ovr}</div>
-      <p class="team">${driver.team}</p>
+      <div class="card-image" style="background: linear-gradient(135deg, ${driver.color}40, ${driver.color}20);">
+        ${driver.emoji}
+      </div>
+      <div class="card-content">
+        <div class="team-badge" style="background: ${driver.color};">${driver.team}</div>
+        <h2>${driver.name}</h2>
+        <div class="ovr">${driver.ovr}</div>
+        <p class="team">⭐ Click for details</p>
+      </div>
     `;
+    
+    card.addEventListener("click", () => showDriverDetail(driver));
+    card.addEventListener("mouseenter", () => card.style.boxShadow = `0 0 40px ${driver.color}80`);
+    card.addEventListener("mouseleave", () => card.style.boxShadow = "0 0 25px rgba(255,0,0,0.6)");
+    
     container.appendChild(card);
 
     select1.add(new Option(driver.name, driver.name));
     select2.add(new Option(driver.name, driver.name));
   });
+}
+
+function showDriverDetail(driver) {
+  const detail = document.getElementById("driver-detail");
+  const content = document.getElementById("detail-content");
+  
+  const stats = [
+    { label: "Pace", value: driver.pace },
+    { label: "Racecraft", value: driver.racecraft },
+    { label: "Consistency", value: driver.consistency },
+    { label: "Tyre Mgmt", value: driver.tyre },
+    { label: "Wet Skill", value: driver.wet },
+    { label: "Mental", value: driver.mental }
+  ];
+  
+  let statsHTML = stats.map(s => `
+    <div style="margin: 15px 0;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+        <span>${s.label}</span>
+        <span style="color: gold; font-weight: bold;">${s.value}</span>
+      </div>
+      <div class="stat-bar">
+        <div class="stat-fill" style="width: ${(s.value / 100) * 100}%"></div>
+      </div>
+    </div>
+  `).join("");
+  
+  content.innerHTML = `
+    <div style="text-align: center;">
+      <div style="font-size: 100px; margin: 20px 0;">${driver.emoji}</div>
+      <h1 style="color: ${driver.color}; margin: 0;">${driver.name}</h1>
+      <h2 style="color: white; margin: 5px 0; font-size: 24px;">${driver.team}</h2>
+      <div class="ovr" style="font-size: 60px;">${driver.ovr}</div>
+      <p style="color: #999; font-size: 12px; margin-top: 10px;">Overall Rating</p>
+    </div>
+    <div style="margin-top: 30px; border-top: 2px solid #ff1e1e; padding-top: 20px;">
+      <h3 style="color: #ff1e1e; text-align: left;">Stats Breakdown</h3>
+      ${statsHTML}
+    </div>
+  `;
+  
+  detail.classList.remove("hidden");
+  detail.style.animation = "fadeIn 0.3s ease";
+}
+
+function closeDetail() {
+  document.getElementById("driver-detail").classList.add("hidden");
 }
 
 function compareDrivers() {

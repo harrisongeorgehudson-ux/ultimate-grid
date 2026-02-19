@@ -5,18 +5,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🏎 Ultimate Grid</h1>
+  <div class="top-bar">
+    <h1>🏎 Ultimate Grid</h1>
+    <div class="live-status">Live F1 Data</div>
+  </div>
 
   <div class="compare-section">
     <select id="driver1"></select>
     <select id="driver2"></select>
-    <button onclick="compareDrivers()">Compare</button>
+    <button onclick="compareDrivers()">⚡ Compare</button>
   </div>
 
   <div id="comparison"></div>
 
   <h2>All Drivers</h2>
   <div id="driver-container"></div>
+
+  <div id="driver-detail" class="driver-detail hidden">
+    <button class="close-btn" onclick="closeDetail()">×</button>
+    <div id="detail-content"></div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
