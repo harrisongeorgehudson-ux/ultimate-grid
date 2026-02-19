@@ -35,9 +35,15 @@ function loadDrivers() {
     card.style.borderLeftColor = driver.color;
     card.style.borderLeftWidth = "6px";
 
+    // Special positioning for certain drivers
+    let imgStyle = "width: 100%; height: 100%; object-fit: cover;";
+    if (driver.name === "Carlos Sainz") {
+      imgStyle = "width: 100%; height: 100%; object-fit: cover; object-position: center 30%;";
+    }
+
     card.innerHTML = `
       <div class="card-image" style="background: linear-gradient(135deg, ${driver.color}40, ${driver.color}20);">
-        <img src="${driver.image}" alt="${driver.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="${driver.image}" alt="${driver.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="${imgStyle}">
         <div class="emoji-fallback" style="display: none; font-size: 80px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">${driver.emoji}</div>
       </div>
       <div class="card-content">
