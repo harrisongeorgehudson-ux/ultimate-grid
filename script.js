@@ -127,7 +127,13 @@ function compareDrivers() {
   const d1 = allDrivers.find(d => d.name === name1);
   const d2 = allDrivers.find(d => d.name === name2);
 
-  document.getElementById("comparison").innerHTML = `<canvas id="radarChart"></canvas>`;
+  document.getElementById("comparison").innerHTML = `
+    <div class="compare-images">
+      <img id="img1" class="compare-img" src="${d1.image || ''}" alt="${d1.name}" onerror="this.style.display='none'">
+      <img id="img2" class="compare-img" src="${d2.image || ''}" alt="${d2.name}" onerror="this.style.display='none'">
+    </div>
+    <canvas id="radarChart"></canvas>
+  `;
   const ctx = document.getElementById("radarChart");
 
   new Chart(ctx, {
