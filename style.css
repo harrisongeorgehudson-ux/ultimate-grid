@@ -134,6 +134,7 @@ button:hover {
   justify-content: center;
   font-size: 80px;
   overflow: hidden;
+  position: relative;
 }
 
 .card-image img {
