@@ -38,7 +38,7 @@ function loadDrivers() {
     // Special positioning for certain drivers
     let imgStyle = "width: 100%; height: 100%; object-fit: cover;";
     if (driver.name === "Carlos Sainz") {
-      imgStyle = "width: 100%; height: 100%; object-fit: cover; object-position: center 60%;";
+      imgStyle = "width: 100%; height: 100%; object-fit: cover; object-position: center 15%;";
     }
 
     card.innerHTML = `
