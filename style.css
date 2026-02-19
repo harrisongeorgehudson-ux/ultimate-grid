@@ -1,0 +1,94 @@
+body {
+  background: linear-gradient(180deg, #000000, #0d0d0d);
+  color: white;
+  font-family: 'Arial Black', sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  color: #ff1e1e;
+  font-size: 40px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+h2 {
+  margin-top: 50px;
+  color: #ff1e1e;
+}
+
+.compare-section {
+  margin: 30px;
+}
+
+select, button {
+  padding: 12px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+}
+
+button {
+  background: #ff1e1e;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #cc0000;
+  transform: scale(1.05);
+}
+
+#driver-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.card {
+  background: linear-gradient(145deg, #1a1a1a, #111);
+  border-radius: 20px;
+  padding: 20px;
+  width: 260px;
+  box-shadow: 0 0 25px rgba(255,0,0,0.6);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px rgba(255,0,0,0.9);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,0,0,0.2), transparent);
+  transform: rotate(25deg);
+  top: -50%;
+  left: -50%;
+}
+
+.ovr {
+  font-size: 48px;
+  color: gold;
+  margin: 10px 0;
+}
+
+.team {
+  font-weight: bold;
+  color: #ff1e1e;
+}
+
+#comparison {
+  width: 600px;
+  margin: 40px auto;
+}
