@@ -35,6 +35,14 @@ function loadDrivers() {
     card.style.borderLeftColor = driver.color;
     card.style.borderLeftWidth = "6px";
 
+    // populate fantasy selects
+    const f1 = document.getElementById("fantasy1");
+    const f2 = document.getElementById("fantasy2");
+    if (f1 && f2) {
+      f1.add(new Option(driver.name, driver.name));
+      f2.add(new Option(driver.name, driver.name));
+    }
+
     // Special positioning for certain drivers
     let imgStyle = "width: 100%; height: 100%; object-fit: cover;";
     if (driver.name === "Carlos Sainz") {
@@ -136,6 +144,16 @@ function compareDrivers() {
       plugins: { legend: { labels: { color: "white" } } }
     }
   });
+}
+
+function buildTeam() {
+  const name1 = document.getElementById("fantasy1").value;
+  const name2 = document.getElementById("fantasy2").value;
+  if (!name1 || !name2) return;
+  const d1 = allDrivers.find(d => d.name === name1);
+  const d2 = allDrivers.find(d => d.name === name2);
+  const total = d1.ovr + d2.ovr;
+  document.getElementById("team-result").textContent = `Team rating: ${total}`;
 }
 
 loadDrivers();

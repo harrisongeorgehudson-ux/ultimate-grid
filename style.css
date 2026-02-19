@@ -81,6 +81,26 @@ button:hover {
   padding: 20px;
 }
 
+.fantasy-section {
+  margin: 40px 0;
+  background: linear-gradient(145deg, #1a1a1a, #111);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255,0,0,0.4);
+}
+
+.fantasy-section h2 {
+  color: #ff1e1e;
+  margin-bottom: 15px;
+}
+
+#team-result {
+  margin-top: 15px;
+  color: gold;
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .card {
   background: linear-gradient(145deg, #1a1a1a, #111);
   border-radius: 20px;
