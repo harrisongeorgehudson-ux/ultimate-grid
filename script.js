@@ -1,8 +1,8 @@
 const teams = [
-  { name: "Red Bull Racing", color: "#0600EF", history: 92, form: 86, engineering: 97, leadership: 95, experience: 88, pitcrew: 96 },
-  { name: "Mercedes", color: "#00D2BE", history: 95, form: 81, engineering: 96, leadership: 94, experience: 93, pitcrew: 95 },
-  { name: "Ferrari", color: "#DC0000", history: 99, form: 90, engineering: 90, leadership: 87, experience: 98, pitcrew: 92 },
-  { name: "McLaren", color: "#FF8700", history: 94, form: 96, engineering: 93, leadership: 91, experience: 95, pitcrew: 94 },
+  { name: "Red Bull Racing", color: "#0600EF", history: 92, form: 90, engineering: 97, leadership: 95, experience: 88, pitcrew: 96 },
+  { name: "Mercedes", color: "#00D2BE", history: 95, form: 93, engineering: 96, leadership: 94, experience: 93, pitcrew: 95 },
+  { name: "Ferrari", color: "#DC0000", history: 99, form: 82, engineering: 87, leadership: 85, experience: 98, pitcrew: 90 },
+  { name: "McLaren", color: "#FF8700", history: 94, form: 97, engineering: 95, leadership: 93, experience: 95, pitcrew: 95 },
   { name: "Aston Martin", color: "#006C3F", history: 78, form: 75, engineering: 88, leadership: 86, experience: 80, pitcrew: 85 },
   { name: "Alpine", color: "#0090FF", history: 85, form: 71, engineering: 82, leadership: 79, experience: 87, pitcrew: 80 },
   { name: "Williams", color: "#005AFF", history: 96, form: 62, engineering: 78, leadership: 81, experience: 94, pitcrew: 83 },
