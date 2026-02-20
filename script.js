@@ -106,16 +106,16 @@ function showTeamDetail(team) {
 }
 
 const drivers = [
-  { name: "Max Verstappen", team: "Red Bull", emoji: "🐂", color: "#0600EF", image: "images/max-verstappen.jpg", pace: 97, racecraft: 95, consistency: 95, tyre: 92, wet: 93, experience: 96 },
-  { name: "Sergio Perez", team: "Red Bull", emoji: "🇲🇽", color: "#0600EF", image: "images/sergio-perez.jpg", pace: 88, racecraft: 89, consistency: 85, tyre: 90, wet: 87, experience: 84 },
-  { name: "Lewis Hamilton", team: "Mercedes", emoji: "🐐", color: "#00D2BE", image: "images/lewis-hamilton.jpg", pace: 92, racecraft: 96, consistency: 93, tyre: 95, wet: 97, experience: 94 },
-  { name: "George Russell", team: "Mercedes", emoji: "🇬🇧", color: "#00D2BE", image: "images/george-russell.jpg", pace: 90, racecraft: 88, consistency: 87, tyre: 86, wet: 85, experience: 88 },
-  { name: "Charles Leclerc", team: "Ferrari", emoji: "🐴", color: "#DC0000", image: "images/charles-leclerc.jpg", pace: 94, racecraft: 88, consistency: 85, tyre: 84, wet: 82, experience: 87 },
-  { name: "Carlos Sainz", team: "Ferrari", emoji: "🇪🇸", color: "#DC0000", image: "images/carlos-sainz.jpg", pace: 89, racecraft: 90, consistency: 88, tyre: 87, wet: 86, experience: 89 },
-  { name: "Lando Norris", team: "McLaren", emoji: "🧡", color: "#FF8700", image: "images/lando-norris.jpg", pace: 91, racecraft: 89, consistency: 88, tyre: 86, wet: 85, experience: 90 },
-  { name: "Oscar Piastri", team: "McLaren", emoji: "🇦🇺", color: "#FF8700", image: "images/oscar-piastri.jpg", pace: 88, racecraft: 85, consistency: 84, tyre: 83, wet: 88, experience: 86 },
-  { name: "Fernando Alonso", team: "Aston Martin", emoji: "🇪🇸", color: "#006C3F", image: "images/fernando-alonso.jpg", pace: 89, racecraft: 94, consistency: 91, tyre: 92, wet: 90, experience: 95 },
-  { name: "Lance Stroll", team: "Aston Martin", emoji: "🇨🇦", color: "#006C3F", image: "images/lance-stroll.jpg", pace: 82, racecraft: 80, consistency: 78, tyre: 79, wet: 77, experience: 80 }
+  { name: "Max Verstappen", team: "Red Bull", emoji: "🐂", color: "#0600EF", image: "images/max-verstappen.jpg", pace: 97, racecraft: 95, consistency: 95, tyre: 92, wet: 93, experience: 95 },
+  { name: "Sergio Perez", team: "Red Bull", emoji: "🇲🇽", color: "#0600EF", image: "images/sergio-perez.jpg", pace: 88, racecraft: 89, consistency: 85, tyre: 90, wet: 87, experience: 90 },
+  { name: "Lewis Hamilton", team: "Mercedes", emoji: "🐐", color: "#00D2BE", image: "images/lewis-hamilton.jpg", pace: 92, racecraft: 96, consistency: 93, tyre: 95, wet: 97, experience: 99 },
+  { name: "George Russell", team: "Mercedes", emoji: "🇬🇧", color: "#00D2BE", image: "images/george-russell.jpg", pace: 90, racecraft: 88, consistency: 87, tyre: 86, wet: 85, experience: 73 },
+  { name: "Charles Leclerc", team: "Ferrari", emoji: "🐴", color: "#DC0000", image: "images/charles-leclerc.jpg", pace: 94, racecraft: 88, consistency: 85, tyre: 84, wet: 82, experience: 80 },
+  { name: "Carlos Sainz", team: "Ferrari", emoji: "🇪🇸", color: "#DC0000", image: "images/carlos-sainz.jpg", pace: 89, racecraft: 90, consistency: 88, tyre: 87, wet: 86, experience: 88 },
+  { name: "Lando Norris", team: "McLaren", emoji: "🧡", color: "#FF8700", image: "images/lando-norris.jpg", pace: 91, racecraft: 89, consistency: 88, tyre: 86, wet: 85, experience: 75 },
+  { name: "Oscar Piastri", team: "McLaren", emoji: "🇦🇺", color: "#FF8700", image: "images/oscar-piastri.jpg", pace: 88, racecraft: 85, consistency: 84, tyre: 83, wet: 88, experience: 65 },
+  { name: "Fernando Alonso", team: "Aston Martin", emoji: "🇪🇸", color: "#006C3F", image: "images/fernando-alonso.jpg", pace: 89, racecraft: 94, consistency: 91, tyre: 92, wet: 90, experience: 98 },
+  { name: "Lance Stroll", team: "Aston Martin", emoji: "🇨🇦", color: "#006C3F", image: "images/lance-stroll.jpg", pace: 82, racecraft: 80, consistency: 78, tyre: 79, wet: 77, experience: 82 }
 ];
 
 function calculateOVR(driver) {
