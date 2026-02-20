@@ -1,14 +1,14 @@
 const teams = [
-  { name: "Red Bull Racing", color: "#0600EF", history: 92, form: 98, engineering: 97, leadership: 95, experience: 88, pitcrew: 96 },
-  { name: "Mercedes", color: "#00D2BE", history: 95, form: 88, engineering: 96, leadership: 94, experience: 93, pitcrew: 95 },
-  { name: "Ferrari", color: "#DC0000", history: 99, form: 85, engineering: 90, leadership: 87, experience: 98, pitcrew: 92 },
-  { name: "McLaren", color: "#FF8700", history: 94, form: 92, engineering: 93, leadership: 91, experience: 95, pitcrew: 94 },
-  { name: "Aston Martin", color: "#006C3F", history: 78, form: 82, engineering: 88, leadership: 86, experience: 80, pitcrew: 85 },
-  { name: "Alpine", color: "#0090FF", history: 85, form: 75, engineering: 82, leadership: 79, experience: 87, pitcrew: 80 },
-  { name: "Williams", color: "#005AFF", history: 96, form: 72, engineering: 78, leadership: 81, experience: 94, pitcrew: 83 },
-  { name: "RB (AlphaTauri)", color: "#2B4562", history: 68, form: 76, engineering: 79, leadership: 77, experience: 75, pitcrew: 81 },
-  { name: "Kick Sauber", color: "#00E000", history: 82, form: 70, engineering: 76, leadership: 74, experience: 86, pitcrew: 78 },
-  { name: "Haas", color: "#B6BABD", history: 65, form: 73, engineering: 74, leadership: 72, experience: 70, pitcrew: 76 }
+  { name: "Red Bull Racing", color: "#0600EF", history: 92, form: 86, engineering: 97, leadership: 95, experience: 88, pitcrew: 96 },
+  { name: "Mercedes", color: "#00D2BE", history: 95, form: 81, engineering: 96, leadership: 94, experience: 93, pitcrew: 95 },
+  { name: "Ferrari", color: "#DC0000", history: 99, form: 90, engineering: 90, leadership: 87, experience: 98, pitcrew: 92 },
+  { name: "McLaren", color: "#FF8700", history: 94, form: 96, engineering: 93, leadership: 91, experience: 95, pitcrew: 94 },
+  { name: "Aston Martin", color: "#006C3F", history: 78, form: 75, engineering: 88, leadership: 86, experience: 80, pitcrew: 85 },
+  { name: "Alpine", color: "#0090FF", history: 85, form: 71, engineering: 82, leadership: 79, experience: 87, pitcrew: 80 },
+  { name: "Williams", color: "#005AFF", history: 96, form: 62, engineering: 78, leadership: 81, experience: 94, pitcrew: 83 },
+  { name: "RB (AlphaTauri)", color: "#2B4562", history: 68, form: 65, engineering: 79, leadership: 77, experience: 75, pitcrew: 81 },
+  { name: "Kick Sauber", color: "#00E000", history: 82, form: 55, engineering: 76, leadership: 74, experience: 86, pitcrew: 78 },
+  { name: "Haas", color: "#B6BABD", history: 65, form: 68, engineering: 74, leadership: 72, experience: 70, pitcrew: 76 }
 ];
 
 function calculateTeamOVR(team) {
