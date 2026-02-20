@@ -1,3 +1,99 @@
+const teams = [
+  { name: "Red Bull Racing", color: "#0600EF", history: 92, form: 98, engineering: 97, leadership: 95, experience: 88, pitcrew: 96 },
+  { name: "Mercedes", color: "#00D2BE", history: 95, form: 88, engineering: 96, leadership: 94, experience: 93, pitcrew: 95 },
+  { name: "Ferrari", color: "#DC0000", history: 99, form: 85, engineering: 90, leadership: 87, experience: 98, pitcrew: 92 },
+  { name: "McLaren", color: "#FF8700", history: 94, form: 92, engineering: 93, leadership: 91, experience: 95, pitcrew: 94 },
+  { name: "Aston Martin", color: "#006C3F", history: 78, form: 82, engineering: 88, leadership: 86, experience: 80, pitcrew: 85 },
+  { name: "Alpine", color: "#0090FF", history: 85, form: 75, engineering: 82, leadership: 79, experience: 87, pitcrew: 80 },
+  { name: "Williams", color: "#005AFF", history: 96, form: 72, engineering: 78, leadership: 81, experience: 94, pitcrew: 83 },
+  { name: "RB (AlphaTauri)", color: "#2B4562", history: 68, form: 76, engineering: 79, leadership: 77, experience: 75, pitcrew: 81 },
+  { name: "Kick Sauber", color: "#00E000", history: 82, form: 70, engineering: 76, leadership: 74, experience: 86, pitcrew: 78 },
+  { name: "Haas", color: "#B6BABD", history: 65, form: 73, engineering: 74, leadership: 72, experience: 70, pitcrew: 76 }
+];
+
+function calculateTeamOVR(team) {
+  return Math.round(
+    team.history * 0.15 +
+    team.form * 0.25 +
+    team.engineering * 0.25 +
+    team.leadership * 0.15 +
+    team.experience * 0.10 +
+    team.pitcrew * 0.10
+  );
+}
+
+let allTeams = teams.map(t => ({ ...t, ovr: calculateTeamOVR(t) }));
+
+function loadTeams() {
+  const container = document.getElementById("team-container");
+
+  allTeams.forEach(team => {
+    const card = document.createElement("div");
+    card.className = "card team-card";
+    card.style.borderLeftColor = team.color;
+    card.style.borderLeftWidth = "6px";
+
+    card.innerHTML = `
+      <div class="card-image team-badge-large" style="background: linear-gradient(135deg, ${team.color}40, ${team.color}20);">
+        <div style="font-size: 50px; color: ${team.color};">🏎️</div>
+      </div>
+      <div class="card-content">
+        <div class="team-badge" style="background: ${team.color};">${team.name}</div>
+        <div class="ovr">${team.ovr}</div>
+        <p class="team">⭐ Click for details</p>
+      </div>
+    `;
+    
+    card.addEventListener("click", () => showTeamDetail(team));
+    card.addEventListener("mouseenter", () => card.style.boxShadow = `0 0 40px ${team.color}80`);
+    card.addEventListener("mouseleave", () => card.style.boxShadow = "0 0 25px rgba(255,0,0,0.6)");
+    
+    container.appendChild(card);
+  });
+}
+
+function showTeamDetail(team) {
+  const detail = document.getElementById("driver-detail");
+  const content = document.getElementById("detail-content");
+  
+  const stats = [
+    { label: "History", value: team.history },
+    { label: "Form", value: team.form },
+    { label: "Engineering", value: team.engineering },
+    { label: "Leadership", value: team.leadership },
+    { label: "Experience", value: team.experience },
+    { label: "Pitcrew", value: team.pitcrew }
+  ];
+  
+  let statsHTML = stats.map(s => `
+    <div style="margin: 15px 0;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+        <span>${s.label}</span>
+        <span style="color: gold; font-weight: bold;">${s.value}</span>
+      </div>
+      <div class="stat-bar">
+        <div class="stat-fill" style="width: ${(s.value / 100) * 100}%"></div>
+      </div>
+    </div>
+  `).join("");
+  
+  content.innerHTML = `
+    <div style="text-align: center;">
+      <div style="font-size: 100px; margin: 20px 0; color: ${team.color};">🏎️</div>
+      <h1 style="color: ${team.color}; margin: 0;">${team.name}</h1>
+      <div class="ovr" style="font-size: 60px;">${team.ovr}</div>
+      <p style="color: #999; font-size: 12px; margin-top: 10px;">Overall Rating</p>
+    </div>
+    <div style="margin-top: 30px; border-top: 2px solid #ff1e1e; padding-top: 20px;">
+      <h3 style="color: #ff1e1e; text-align: left;">Stats Breakdown</h3>
+      ${statsHTML}
+    </div>
+  `;
+  
+  detail.classList.remove("hidden");
+  detail.style.animation = "fadeIn 0.3s ease";
+}
+
 const drivers = [
   { name: "Max Verstappen", team: "Red Bull", emoji: "🐂", color: "#0600EF", image: "images/max-verstappen.jpg", pace: 97, racecraft: 95, consistency: 95, tyre: 92, wet: 93, mental: 96 },
   { name: "Sergio Perez", team: "Red Bull", emoji: "🇲🇽", color: "#0600EF", image: "images/sergio-perez.jpg", pace: 88, racecraft: 89, consistency: 85, tyre: 90, wet: 87, mental: 84 },
@@ -163,3 +259,4 @@ function buildTeam() {
 }
 
 loadDrivers();
+loadTeams();
