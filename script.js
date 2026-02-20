@@ -102,7 +102,7 @@ const drivers = [
   { name: "Charles Leclerc", team: "Ferrari", emoji: "🐴", color: "#DC0000", image: "images/charles-leclerc.jpg", pace: 94, racecraft: 88, consistency: 85, tyre: 84, wet: 82, mental: 87 },
   { name: "Carlos Sainz", team: "Ferrari", emoji: "🇪🇸", color: "#DC0000", image: "images/carlos-sainz.jpg", pace: 89, racecraft: 90, consistency: 88, tyre: 87, wet: 86, mental: 89 },
   { name: "Lando Norris", team: "McLaren", emoji: "🧡", color: "#FF8700", image: "images/lando-norris.jpg", pace: 91, racecraft: 89, consistency: 88, tyre: 86, wet: 85, mental: 90 },
-  { name: "Oscar Piastri", team: "McLaren", emoji: "🇦🇺", color: "#FF8700", image: "images/oscar-piastri.jpg", pace: 88, racecraft: 85, consistency: 84, tyre: 83, wet: 82, mental: 86 },
+  { name: "Oscar Piastri", team: "McLaren", emoji: "🇦🇺", color: "#FF8700", image: "images/oscar-piastri.jpg", pace: 88, racecraft: 85, consistency: 84, tyre: 83, wet: 88, mental: 86 },
   { name: "Fernando Alonso", team: "Aston Martin", emoji: "🇪🇸", color: "#006C3F", image: "images/fernando-alonso.jpg", pace: 89, racecraft: 94, consistency: 91, tyre: 92, wet: 90, mental: 95 },
   { name: "Lance Stroll", team: "Aston Martin", emoji: "🇨🇦", color: "#006C3F", image: "images/lance-stroll.jpg", pace: 82, racecraft: 80, consistency: 78, tyre: 79, wet: 77, mental: 80 }
 ];
