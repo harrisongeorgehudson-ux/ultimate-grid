@@ -320,37 +320,34 @@ button:hover {
   position: absolute;
   top: 15px;
   left: 15px;
-  font-size: 52px;
-  color: transparent;
-  background: linear-gradient(180deg, #f4e5b1 0%, #d4af37 50%, #b8a068 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  font-size: 56px;
+  color: #f4e5b1;
   margin: 0;
   font-weight: 900;
   text-shadow: 
-    0 0 15px rgba(212, 175, 55, 0.8),
-    0 0 25px rgba(212, 175, 55, 0.5),
-    0 4px 10px rgba(0,0,0,1);
+    0 0 20px rgba(244, 229, 177, 0.6),
+    0 4px 8px rgba(0,0,0,0.95),
+    0 2px 0 rgba(212, 175, 55, 0.8);
   line-height: 0.9;
   z-index: 4;
   font-family: 'Arial Black', sans-serif;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.9));
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.9));
+  -webkit-text-stroke: 1px rgba(212, 175, 55, 0.3);
 }
 
 .ovr::after {
   content: 'DR';
   display: block;
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 900;
   letter-spacing: 2px;
-  margin-top: 2px;
-  color: transparent;
-  background: linear-gradient(180deg, #d4af37 0%, #b8a068 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  margin-top: 3px;
+  color: #d4af37;
   text-shadow: 
-    0 0 10px rgba(212, 175, 55, 0.6),
-    0 2px 6px rgba(0,0,0,0.9);
+    0 0 12px rgba(212, 175, 55, 0.8),
+    0 2px 4px rgba(0,0,0,0.95),
+    0 1px 0 rgba(244, 229, 177, 0.4);
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.3);
 }
 
 .card-stats {
@@ -399,11 +396,12 @@ button:hover {
 
 .stat-value {
   font-weight: 900;
-  color: transparent;
-  background: linear-gradient(180deg, #d4af37 0%, #b8a068 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  color: #f4e5b1;
+  text-shadow: 
+    0 0 10px rgba(244, 229, 177, 0.5),
+    0 1px 3px rgba(0,0,0,0.9),
+    0 1px 0 rgba(212, 175, 55, 0.6);
+  -webkit-text-stroke: 0.3px rgba(212, 175, 55, 0.2);
 }
 
 .team {
