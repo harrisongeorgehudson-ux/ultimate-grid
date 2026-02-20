@@ -143,11 +143,14 @@ function loadDrivers() {
       imgStyle = "width: 100%; height: 100%; object-fit: cover; object-position: center 15%;";
     }
 
+    const emojiBackup = driver.emoji;
+    
     card.innerHTML = `
       <div class="ovr">${driver.ovr}</div>
       <div class="team-badge">${driver.emoji}</div>
       <div class="card-image">
-        <img src="${driver.image}" alt="${driver.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"font-size: 120px; padding-bottom: 20px;\">${driver.emoji}</div>';" style="${imgStyle}">
+        <img src="${driver.image}" alt="${driver.name}" style="${imgStyle}">
+        <div class="emoji-fallback" style="display:none; font-size:120px; padding-bottom:20px;">${driver.emoji}</div>
       </div>
       <div class="card-content">
         <h2>${driver.name}</h2>
@@ -166,6 +169,14 @@ function loadDrivers() {
         <p class="team">${driver.team}</p>
       </div>
     `;
+    
+    // Handle image loading error
+    const img = card.querySelector('img');
+    const fallback = card.querySelector('.emoji-fallback');
+    img.onerror = () => {
+      img.style.display = 'none';
+      fallback.style.display = 'block';
+    };
     
     card.addEventListener("click", () => showDriverDetail(driver));
     
