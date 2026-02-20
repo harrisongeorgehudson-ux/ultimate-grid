@@ -246,6 +246,18 @@ button:hover {
     linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
 }
 
+.card-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.9) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
 .card-image img {
   width: 180px;
   height: 200px;
@@ -254,6 +266,22 @@ button:hover {
   position: relative;
   z-index: 2;
   filter: drop-shadow(0 8px 15px rgba(0,0,0,0.9));
+  mask-image: linear-gradient(
+    180deg, 
+    rgba(0,0,0,1) 0%, 
+    rgba(0,0,0,1) 40%,
+    rgba(0,0,0,0.9) 70%,
+    rgba(0,0,0,0.6) 85%,
+    rgba(0,0,0,0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    180deg, 
+    rgba(0,0,0,1) 0%, 
+    rgba(0,0,0,1) 40%,
+    rgba(0,0,0,0.9) 70%,
+    rgba(0,0,0,0.6) 85%,
+    rgba(0,0,0,0) 100%
+  );
 }
 
 .card-content {
