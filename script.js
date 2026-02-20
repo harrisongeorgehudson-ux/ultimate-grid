@@ -30,23 +30,34 @@ function loadTeams() {
   allTeams.forEach(team => {
     const card = document.createElement("div");
     card.className = "card team-card";
-    card.style.borderLeftColor = team.color;
-    card.style.borderLeftWidth = "6px";
 
     card.innerHTML = `
-      <div class="card-image team-badge-large" style="background: linear-gradient(135deg, ${team.color}40, ${team.color}20);">
-        <div style="font-size: 50px; color: ${team.color};">🏎️</div>
+      <div class="card-pattern"></div>
+      <div class="card-triangle"></div>
+      <div class="ovr team-ovr">${team.ovr}</div>
+      <div class="team-badge">🏎️</div>
+      <div class="card-image" style="background: linear-gradient(135deg, ${team.color}40, ${team.color}20);">
+        <div style="font-size: 80px; color: ${team.color}; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.9));">🏎️</div>
       </div>
       <div class="card-content">
-        <div class="team-badge" style="background: ${team.color};">${team.name}</div>
-        <div class="ovr">${team.ovr}</div>
-        <p class="team">⭐ Click for details</p>
+        <h2>${team.name}</h2>
+        <div class="card-stats">
+          <div class="card-stats-col">
+            <div class="stat-item"><span class="stat-label">HIS</span><span class="stat-value">${team.history}</span></div>
+            <div class="stat-item"><span class="stat-label">FOR</span><span class="stat-value">${team.form}</span></div>
+            <div class="stat-item"><span class="stat-label">ENG</span><span class="stat-value">${team.engineering}</span></div>
+          </div>
+          <div class="card-stats-col">
+            <div class="stat-item"><span class="stat-label">LEA</span><span class="stat-value">${team.leadership}</span></div>
+            <div class="stat-item"><span class="stat-label">EXP</span><span class="stat-value">${team.experience}</span></div>
+            <div class="stat-item"><span class="stat-label">PIT</span><span class="stat-value">${team.pitcrew}</span></div>
+          </div>
+        </div>
+        <p class="team">CONSTRUCTOR</p>
       </div>
     `;
     
     card.addEventListener("click", () => showTeamDetail(team));
-    card.addEventListener("mouseenter", () => card.style.boxShadow = `0 0 40px ${team.color}80`);
-    card.addEventListener("mouseleave", () => card.style.boxShadow = "0 0 25px rgba(255,0,0,0.6)");
     
     container.appendChild(card);
   });

@@ -381,6 +381,10 @@ button:hover {
   -webkit-text-stroke: 0.5px rgba(0,0,0,0.3);
 }
 
+.team-ovr::after {
+  content: 'TC';
+}
+
 .card-stats {
   display: flex;
   justify-content: space-between;
