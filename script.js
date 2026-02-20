@@ -146,6 +146,8 @@ function loadDrivers() {
     const emojiBackup = driver.emoji;
     
     card.innerHTML = `
+      <div class="card-pattern"></div>
+      <div class="card-triangle"></div>
       <div class="ovr">${driver.ovr}</div>
       <div class="team-badge">${driver.emoji}</div>
       <div class="card-image">
