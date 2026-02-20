@@ -128,8 +128,6 @@ function loadDrivers() {
   allDrivers.forEach(driver => {
     const card = document.createElement("div");
     card.className = "card";
-    card.style.borderLeftColor = driver.color;
-    card.style.borderLeftWidth = "6px";
 
     // populate fantasy selects
     const f1 = document.getElementById("fantasy1");
@@ -146,21 +144,30 @@ function loadDrivers() {
     }
 
     card.innerHTML = `
-      <div class="card-image" style="background: linear-gradient(135deg, ${driver.color}40, ${driver.color}20);">
-        <img src="${driver.image}" alt="${driver.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="${imgStyle}">
-        <div class="emoji-fallback" style="display: none; font-size: 80px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">${driver.emoji}</div>
+      <div class="ovr">${driver.ovr}</div>
+      <div class="team-badge">${driver.emoji}</div>
+      <div class="card-image">
+        <img src="${driver.image}" alt="${driver.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"font-size: 120px; padding-bottom: 20px;\">${driver.emoji}</div>';" style="${imgStyle}">
       </div>
       <div class="card-content">
-        <div class="team-badge" style="background: ${driver.color};">${driver.team}</div>
         <h2>${driver.name}</h2>
-        <div class="ovr">${driver.ovr}</div>
-        <p class="team">⭐ Click for details</p>
+        <div class="card-stats">
+          <div class="card-stats-col">
+            <div class="stat-item"><span class="stat-label">PAC</span><span class="stat-value">${driver.pace}</span></div>
+            <div class="stat-item"><span class="stat-label">RAC</span><span class="stat-value">${driver.racecraft}</span></div>
+            <div class="stat-item"><span class="stat-label">CON</span><span class="stat-value">${driver.consistency}</span></div>
+          </div>
+          <div class="card-stats-col">
+            <div class="stat-item"><span class="stat-label">TYR</span><span class="stat-value">${driver.tyre}</span></div>
+            <div class="stat-item"><span class="stat-label">WET</span><span class="stat-value">${driver.wet}</span></div>
+            <div class="stat-item"><span class="stat-label">MEN</span><span class="stat-value">${driver.mental}</span></div>
+          </div>
+        </div>
+        <p class="team">${driver.team}</p>
       </div>
     `;
     
     card.addEventListener("click", () => showDriverDetail(driver));
-    card.addEventListener("mouseenter", () => card.style.boxShadow = `0 0 40px ${driver.color}80`);
-    card.addEventListener("mouseleave", () => card.style.boxShadow = "0 0 25px rgba(255,0,0,0.6)");
     
     container.appendChild(card);
 
